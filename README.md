@@ -1,59 +1,339 @@
-# Roots
+# منصة جوزور - نظام التمكين التجاري B2B
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.5.
+<div dir="rtl" align="right">
 
-## Development server
+## 🌟 نظرة عامة
 
-To start a local development server, run:
+منصة جوزور هي نظام تمكين تجاري متكامل للربط بين المستوردين والمصدرين ومزودي الخدمات اللوجستية وشركات فحص الجودة في منصة واحدة احترافية. تم تطوير المنصة باستخدام أحدث تقنيات Angular مع دعم كامل للغة العربية والواجهة RTL.
+
+## 🎯 المميزات الرئيسية
+
+### 🌍 اللغة والتوطين
+- ✅ اللغة العربية الافتراضية
+- ✅ واجهة RTL كاملة
+- ✅ ملف ترجمة مركزي (ar.json)
+- ✅ بنية جاهزة لدعم اللغة الإنجليزية مستقبلاً
+
+### 🏗️ البنية التقنية
+- ✅ Angular 20.1 (أحدث إصدار)
+- ✅ Standalone Components
+- ✅ Clean Architecture (Core, Shared, Features)
+- ✅ SCSS للتنسيق
+- ✅ تصميم متجاوب (Desktop-first)
+- ✅ Mock APIs باستخدام Services & Interfaces
+
+### 👥 الأدوار المدعومة
+
+المنصة تدعم خمسة أدوار رئيسية:
+
+1. **مستورد** - إنشاء طلبات الاستيراد وإدارتها
+2. **مصدر** - تقديم عروض الأسعار
+3. **مزود خدمات لوجستية** - إدارة الشحن والتوصيل
+4. **شركة فحص الجودة** - فحص المنتجات
+5. **مدير النظام** - إدارة شاملة للمنصة
+
+## 📋 سير العمل على المنصة
+
+### 1️⃣ طلب المستورد
+نموذج متعدد الخطوات يشمل:
+- نوع المنتج (طازج / مجمد)
+- الكمية والمواصفات
+- معلومات الشحن
+- الخدمات الاختيارية:
+  - فحص الجودة
+  - الشحن (بحري / جوي / بري)
+  - من الباب إلى الباب
+  - إدارة مستندات الشحن
+
+### 2️⃣ مراجعة الطلب (جوزور)
+- لوحة تحكم لعرض الطلبات
+- ترشيح المصدرين المعتمدين
+- حالات الطلب:
+  - قيد المراجعة
+  - بانتظار عروض الأسعار
+  - تم الإرسال للمصدر
+
+### 3️⃣ عروض أسعار المصدرين
+- لوحة تحكم المصدر
+- نموذج تقديم عرض سعر شامل
+- حالة العرض (قيد المراجعة / مقبول / مرفوض)
+
+### 4️⃣ تكاليف الشحن
+- وضعين: مزود مفضل / وضع الذكاء الاصطناعي
+- مقارنة شاملة للخيارات:
+  - التكلفة
+  - مدة الشحن
+  - مستوى الاعتمادية
+
+### 5️⃣ التكلفة الإجمالية
+شاشة تفصيلية توضح:
+- سعر المنتج
+- تكلفة الشحن
+- فحص الجودة
+- رسوم جوزور
+- ضريبة القيمة المضافة
+- زر الموافقة والاعتماد
+
+### 6️⃣ مرحلة التنفيذ
+- Timeline عربي تفاعلي
+- توزيع المهام على الأطراف
+- تتبع التقدم في كل مرحلة
+
+### 7️⃣ تتبع الشحنة والمستندات
+Dashboard موحد يشمل:
+- تتبع الشحنة لحظياً
+- رفع وتنزيل المستندات:
+  - بوليصة الشحن
+  - شهادة المنشأ
+  - الفاتورة التجارية
+  - بيان التعبئة
+
+### 8️⃣ خدمات إضافية
+- جوزور كمستورد / مصدر رسمي
+- التمويل التجاري (قريباً)
+- التأمين التجاري (قريباً)
+
+## 🚀 البدء في التطوير
+
+### المتطلبات الأساسية
 
 ```bash
-ng serve
+Node.js >= 18.x
+npm >= 9.x
+Angular CLI >= 20.x
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### التثبيت
 
 ```bash
-ng generate component component-name
+# تثبيت المكتبات
+npm install
+
+# تشغيل بيئة التطوير
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+سيعمل التطبيق على: `http://localhost:4200`
+
+### البناء للإنتاج
 
 ```bash
-ng generate --help
+# بناء المشروع
+npm run build
+
+# الملفات ستكون في مجلد dist/
 ```
 
-## Building
+## 📁 هيكل المشروع
 
-To build the project run:
-
-```bash
-ng build
+```
+src/
+├── app/
+│   ├── core/                    # الخدمات الأساسية
+│   │   ├── models/             # النماذج والأنواع
+│   │   ├── services/           # خدمات الأعمال
+│   │   └── guards/             # حماية المسارات
+│   │
+│   ├── shared/                  # المكونات المشتركة
+│   │   └── components/
+│   │       ├── layout/         # التخطيط الأساسي
+│   │       ├── header/         # الهيدر
+│   │       ├── sidebar/        # القائمة الجانبية
+│   │       ├── stepper/        # خطوات النموذج
+│   │       ├── status-badge/   # شارات الحالة
+│   │       ├── card/           # البطاقات
+│   │       └── loading/        # مؤشر التحميل
+│   │
+│   ├── features/                # مكونات المميزات
+│   │   ├── auth/               # المصادقة
+│   │   ├── dashboard/          # لوحة التحكم
+│   │   ├── requests/           # الطلبات
+│   │   ├── quotations/         # عروض الأسعار
+│   │   └── shipments/          # الشحنات
+│   │
+│   ├── app.routes.ts           # مسارات التطبيق
+│   └── app.ts                  # المكون الرئيسي
+│
+├── assets/
+│   └── i18n/
+│       └── ar.json             # ملف الترجمة العربية
+│
+└── styles.scss                 # الأنماط العامة مع RTL
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 🎨 واجهة المستخدم
 
-## Running unit tests
+### التصميم
+- تصميم SaaS احترافي
+- نظام ألوان متناسق (أخضر رئيسي)
+- واجهة RTL كاملة
+- تصميم متجاوب على جميع الشاشات
+- رسوم متحركة سلسة
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### المكونات الرئيسية
+- Header مع معلومات المستخدم
+- Sidebar مع تصفية حسب الدور
+- Stepper عربي للنماذج متعددة الخطوات
+- Status Badges ملونة بالعربية
+- Cards تفاعلية
+- Tables مع بحث وتصفية
+- Timeline للتتبع
 
-```bash
-ng test
-```
+## 🔐 المصادقة والصلاحيات
 
-## Running end-to-end tests
+### نظام الدخول
+- تسجيل دخول باختيار الدور
+- Guards للحماية
+- حفظ الجلسة في LocalStorage
 
-For end-to-end (e2e) testing, run:
+### إدارة الصلاحيات
+- Role-based access control
+- حماية المسارات حسب الدور
+- عرض القوائم ديناميكياً
 
-```bash
-ng e2e
-```
+## 📊 إدارة البيانات
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### الخدمات (Services)
+جميع الخدمات تستخدم:
+- Signals من Angular
+- Observables من RxJS
+- Mock data للتطوير
+- Type-safe interfaces
 
-## Additional Resources
+### النماذج (Models)
+- User
+- ImportRequest
+- Quotation
+- Shipment
+- Document
+- Execution
+- CostBreakdown
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 🌐 التوطين (i18n)
+
+### الترجمة
+- ملف ar.json شامل
+- خدمة i18n مركزية
+- دعم interpolation
+- بنية جاهزة للغات أخرى
+
+### RTL
+- دعم كامل للـ RTL
+- تنسيقات SCSS محسّنة
+- اتجاه النص تلقائي
+- Flexbox & Grid متوافقة
+
+## 🔧 التقنيات المستخدمة
+
+### الإطار الأساسي
+- **Angular 20.1** - أحدث إصدار
+- **TypeScript 5.8** - للنوعية القوية
+- **RxJS 7.8** - للبرمجة التفاعلية
+- **Signals** - لإدارة الحالة
+
+### التنسيق
+- **SCSS** - مع متغيرات ومكسينز
+- **Flexbox & Grid** - للتخطيط
+- **CSS Animations** - للحركات
+- **RTL Support** - دعم كامل
+
+### الأدوات
+- **Angular CLI** - للبناء والتطوير
+- **ESLint** - لجودة الكود
+- **Prettier** - للتنسيق
+
+## 📱 التجاوب
+
+المنصة متجاوبة بالكامل:
+- **Desktop** (1920px+) - التجربة الكاملة
+- **Laptop** (1024px - 1919px) - محسّنة
+- **Tablet** (768px - 1023px) - مبسطة
+- **Mobile** (< 768px) - مناسبة للموبايل
+
+## 🧪 الاختبار
+
+### تسجيل الدخول للاختبار
+يمكنك تسجيل الدخول بأي:
+- **البريد الإلكتروني**: أي بريد صالح
+- **كلمة المرور**: أي كلمة مرور
+- **الدور**: اختر من القائمة
+
+سيتم إنشاء مستخدم وهمي تلقائياً.
+
+## 📝 البيانات الوهمية
+
+المشروع يحتوي على بيانات وهمية شاملة:
+- طلبات استيراد
+- عروض أسعار
+- شحنات
+- مستندات
+- مهام تنفيذ
+
+## 🎯 الحالات المدعومة
+
+### حالات الطلب
+- مسودة
+- قيد المراجعة
+- بانتظار عروض الأسعار
+- تم الإرسال للمصدر
+- معتمد
+- قيد التنفيذ
+- مكتمل
+- ملغي
+
+### حالات الشحنة
+- قيد التجهيز
+- جاهز للشحن
+- في الطريق
+- في الجمارك
+- في طريقه للتسليم
+- تم التسليم
+
+### حالات المستندات
+- تم الرفع
+- بانتظار التوثيق
+- موثق
+- مرفوض
+
+## 🚀 المميزات المستقبلية
+
+- [ ] إضافة اللغة الإنجليزية
+- [ ] تكامل مع APIs حقيقية
+- [ ] نظام الإشعارات الفورية
+- [ ] التمويل التجاري
+- [ ] التأمين التجاري
+- [ ] تقارير متقدمة
+- [ ] تكامل مع بوابات الدفع
+- [ ] تطبيق موبايل
+
+## 🤝 المساهمة
+
+نرحب بالمساهمات! يرجى:
+1. Fork المشروع
+2. إنشاء branch للمميزة
+3. Commit التغييرات
+4. Push إلى Branch
+5. فتح Pull Request
+
+## 📄 الترخيص
+
+هذا المشروع مرخص تحت MIT License.
+
+## 📞 التواصل
+
+للاستفسارات والدعم:
+- **الموقع**: jozour.com
+- **البريد**: info@jozour.com
+- **الدعم**: support@jozour.com
+
+## 🙏 شكر خاص
+
+شكراً لجميع المساهمين في تطوير هذه المنصة الرائدة في مجال التجارة الدولية.
+
+---
+
+**جوزور © 2025 - جميع الحقوق محفوظة**
+
+منصة التمكين التجاري B2B - ربط العالم التجاري
+
+</div>
