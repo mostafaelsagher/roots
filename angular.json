@@ -17,44 +17,31 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/roots/browser",
+            "polyfills": ["src/polyfills.ts"],
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              },
-              {
-                "glob": "**/*",
-                "input": "src/assets",
-                "output": "/assets"
-              }
+              {"glob": "**/*", "input": "public"},
+              {"glob": "**/*", "input": "src/assets", "output": "/assets"}
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "styles": ["src/styles.scss"]
           },
           "configurations": {
             "production": {
               "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
-                }
+                {"type": "initial", "maximumWarning": "500kB", "maximumError": "1MB"},
+                {"type": "anyComponentStyle", "maximumWarning": "4kB", "maximumError": "8kB"}
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "localize": true
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "localize": false
             }
           },
           "defaultConfiguration": "production"
@@ -62,12 +49,8 @@
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
-            "production": {
-              "buildTarget": "roots:build:production"
-            },
-            "development": {
-              "buildTarget": "roots:build:development"
-            }
+            "production": {"buildTarget": "roots:build:production"},
+            "development": {"buildTarget": "roots:build:development"}
           },
           "defaultConfiguration": "development"
         },
@@ -80,25 +63,14 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              },
-              {
-                "glob": "**/*",
-                "input": "src/assets",
-                "output": "/assets"
-              }
+              {"glob": "**/*", "input": "public"},
+              {"glob": "**/*", "input": "src/assets", "output": "/assets"}
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "styles": ["src/styles.scss"]
           }
         }
       }
     }
   },
-  "cli": {
-    "analytics": false
-  }
+  "cli": {"analytics": false}
 }
